@@ -227,10 +227,11 @@
         text-align: center;
       }
       .about-img-wrap img {
-        border-radius: 22px;
+        border-radius: 10px;
+        boeder:rounded
         box-shadow: 0 8px 36px 0 rgba(251, 191, 36, 0.14);
         max-width: 100%;
-        height: 270px;
+        height: 200px;
         object-fit: cover;
       }     
       .video-modal {
@@ -254,16 +255,44 @@
       .demo-btn:hover {
         background: #ec4899;
       }     
-      @media (max-width: 900px) {
-        .services-section, .about-section { padding: 0 6px; }
-        .about-section { flex-direction: column-reverse; gap: 32px; }
-      }
-      @media (max-width: 600px) {
-        .banner-title { font-size: 1.6rem; }
-        .services-title, .about-title { font-size: 1.44rem; }
-        .about-img-wrap img { height: 170px; }
-        .navbar-container { flex-direction: column; gap: 12px; }
-      }      
+     @media (max-width: 900px) {
+  .services-section, .about-section {
+    padding: 0 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    text-align: center;
+  }
+
+  .about-text {
+    text-align: center;
+  }
+
+  .about-image img {
+    width: 90%;
+    max-width: 320px;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .navbar-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .banner-title {
+    font-size: 1.6rem;
+  }
+
+  .services-title, .about-title {
+    font-size: 1.44rem;
+  }
+}
+   
       <section class="about-section" id="about" style="padding: 40px 16px; margin-bottom: 30px;">
   <div class="about-grid">
     <div class="about-text">
