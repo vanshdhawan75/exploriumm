@@ -235,7 +235,7 @@
   object-fit: cover;
 }
 
-/* 🔧 Add this for mobile image scaling */
+
 @media (max-width: 768px) {
   .about-img-wrap img {
     width: 90%;
@@ -246,7 +246,7 @@
   }
 }
 
-      }     
+      {}    
       .video-modal {
         text-align: center;
         margin-top: 44px;
@@ -279,6 +279,22 @@
   min-width: 150px;
   font-size: 0.95rem;
 }
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: center;
+  gap: 30px;
+}
+
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 36px rgba(251, 191, 36, 0.14);
+  display: block;
+  margin: 0 auto;
+}
+
 
         
       <section class="about-section" id="about" style="padding: 40px 16px; margin-bottom: 30px;">
@@ -466,16 +482,17 @@
   </div>
 </section>
 
-    <div class="video-modal">
-      <a
-        href="https://www.youtube.com/watch?v=sgB8TjNKmSI"
-        class="demo-btn"
-        target="_blank"
-        rel="noopener noreferrer" 
-      >
-        Watch Demo
-      </a>
-    </div>
+   <div class="video-modal">
+  <a
+    href="https://www.youtube.com/watch?v=sgB8TjNKmSI"
+    class="demo-btn"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Watch Demo
+  </a>
+</div>
+
     <div class="container mx-auto py-8">
   <h2 class="text-center mb-6 text-xl font-bold text-pink-800">FAQs</h2>
   <div class="max-w-xl mx-auto flex flex-col gap-4">
