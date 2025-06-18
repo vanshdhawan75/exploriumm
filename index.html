@@ -52,6 +52,7 @@
       }      
       .banner-section {
         position: relative;
+        border:round;
         min-height: 60vh;
         text-align: center;
         display: flex;
@@ -109,7 +110,7 @@
         background: linear-gradient(to right, #fde68a, #ec4899);
       }     
       .carousel {
-        margin-bottom: 0;
+        margin-bottom: 10;
       }
       .carousel-item img {
         max-height: 500px;
@@ -294,6 +295,21 @@
   display: block;
   margin: 0 auto;
 }
+@media (max-width: 600px) {
+  .btn-sm.rounded-pill {
+    font-size: 0.75rem;
+    padding: 6px 14px;
+    white-space: nowrap;
+  }
+
+  .footer-contact-section,
+  .footer-career-section {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+}
+
 
 
         
