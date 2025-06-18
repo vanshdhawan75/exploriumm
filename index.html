@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explorium - Home</title>
+   
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      body {
+        font-family: 'Poppins', 'Playfair Display', sans-serif;
+        margin: 0;
+        background: #6f9a79;
+        color: #160000;
+      }
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        background: linear-gradient(to right, #ef4444, #ec4899, #fde68a);
+        box-shadow: 0 2px 20px 0 rgba(241, 113, 133, 0.12);
+      }
+      .navbar-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex; justify-content: space-between; align-items: center; padding: 12px 24px;
+      }
+      .navbar-brand {
+        color: #fff;
+        font-size: 2rem;
+        font-weight: bold;
+        text-decoration: none;
+        letter-spacing: 2px;
+        transition: transform 0.2s;
+      }
+      .navbar-brand:hover { transform: scale(1.05); }
+      .nav-links button {
+        color: #fff;
+        background: none;
+        border: none;
+        font: inherit;
+        margin-left: 2rem;
+        cursor: pointer;
+        font-weight: 500;
+        text-decoration: underline transparent 2px;
+        transition: text-decoration 0.2s;
+      }
+      .nav-links button:hover {
+        text-decoration: underline #fde68a 2px;
+      }      
+      .banner-section {
+        position: relative;
+        min-height: 60vh;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #fce7f3 0%, #fef9c3 50%, #ffedd5 100%);
+        overflow: hidden;
+      }
+      .banner-bg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        opacity: 0.30;
+        pointer-events: none;
+      }
+      .banner-content {
+        position: relative;
+        z-index: 1;
+        max-width: 560px;
+        margin: 0 auto;
+        padding: 64px 16px 0;
+      }
+      .banner-title {
+        font-family: 'Playfair Display', serif;
+        color: #be185d;
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 24px;
+        text-shadow: 0 2px 8px #fff2;
+      }
+      .banner-desc {
+        font-size: 1.18rem;
+        color: #444;
+        margin-bottom: 36px;
+        line-height: 1.6;
+      }
+      .banner-btn {
+        background: linear-gradient(to right, #ec4899, #fde68a);
+        color: #ffffff;
+        font-weight: bold;
+        padding: 16px 32px;
+        border-radius: 999px;
+        box-shadow: 0 6px 30px 0 rgba(251, 191, 36, 0.12);
+        border: none;
+        cursor: pointer;
+        font-size: 1.1rem;
+        text-decoration: none;
+        display: inline-block;
+        transition: 0.2s;
+      }
+      .banner-btn:hover {
+        background: linear-gradient(to right, #fde68a, #ec4899);
+      }     
+      .carousel {
+        margin-bottom: 0;
+      }
+      .carousel-item img {
+        max-height: 500px;
+        object-fit: cover;
+        width: 100%;
+      }     
+      .services-section {
+        max-width: 1200px;
+        margin: 48px auto;
+        padding: 0 16px;
+      }
+      .services-title {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 32px;
+        color: #be185d;
+      }
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+        gap: 28px;
+      }
+      .card {
+        background: rgba(255,255,255,0.94);
+        box-shadow: 0 10px 32px 0 rgba(255, 92, 125, 0.13);
+        border-radius: 22px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: transform .2s;
+        border: none;
+      }
+      .card:hover {
+        transform: translateY(-8px) scale(1.04);
+        box-shadow: 0 14px 38px 0 rgba(255, 92, 125, 0.17);
+      }
+      .card-img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+      }
+      .card-body {
+        padding: 18px 16px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+      .card-title {
+        font-size: 1.17rem;
+        font-weight: 600;
+        color: #be185d;
+        margin-bottom: 7px;
+        text-transform: capitalize;
+      }
+      .card-desc {
+        color: #525252;
+        flex: 1;
+        margin-bottom: 16px;
+        font-size: 1rem;
+      }
+      .card-btn {
+        background: #ec4899;
+        color: #fff;
+        font-weight: 600;
+        padding: 10px 18px;
+        border-radius: 999px;
+        border: none;
+        font-size: 1rem;
+        margin-bottom: 2px;
+        box-shadow: 0 2px 8px 0 rgba(236, 72, 153, 0.11);
+        cursor: pointer;
+        text-decoration: none;
+        transition: 0.15s;
+        display: inline-block;
+      }
+      .card-btn:hover {
+        background: #fde68a;
+        color: #be185d;
+      }     
+      .about-section {
+        max-width: 1200px;
+        margin: 60px auto 30px auto;
+        padding: 0 22px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 35px 35px;
+        align-items: center;
+      }
+      .about-txt {
+        flex: 1 1 320px;
+        text-align: left;
+      }
+      .about-title {
+        font-size: 2rem;
+        color: #f59e42;
+        font-weight: bold;
+        margin-bottom: 18px;
+      }
+      .about-main {
+        font-size: 1.18rem;
+        color: #be185d;
+        font-weight: 500;
+        margin-bottom: 9px;
+      }
+      .about-desc {
+        color: #444;
+        font-size: 1rem;
+        margin-bottom: 0;
+      }
+      .about-img-wrap {
+  flex: 1 1 320px;
+  text-align: center;
+}
+
+.about-img-wrap img {
+  border-radius: 10px;
+  box-shadow: 0 8px 36px 0 rgba(251, 191, 36, 0.14);
+  max-width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+
+@media (max-width: 768px) {
+  .about-img-wrap img {
+    width: 90%;
+    max-width: 280px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+      {}    
+      .video-modal {
+        text-align: center;
+        margin-top: 44px;
+      }
+      .demo-btn {
+        background: #fde68a;
+        color: #e04bc5;
+        font-weight: bold;
+        padding: 15px 32px;
+        border: round;
+        border-radius: 999px;
+        font-size: 1.07rem;
+        box-shadow: 0 6px 20px 0 rgba(236, 72, 153, 0.09);
+        cursor: pointer;
+        transition: all 0.18s;
+        text-decoration: none;
+        display: inline-block;
+      }
+      .demo-btn:hover {
+        background: #0e0208;
+      }     
+      .dropdown .btn {
+  background: rgb(15, 11, 12);
+  border: none;
+  font-weight: bold;
+  padding: 4px 8px;
+}
+
+.dropdown-menu {
+  min-width: 150px;
+  font-size: 0.95rem;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: center;
+  gap: 30px;
+}
+
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 36px rgba(251, 191, 36, 0.14);
+  display: block;
+  margin: 0 auto;
+}
+
+
+        
+      <section class="about-section" id="about" style="padding: 40px 16px; margin-bottom: 30px;">
+  <div class="about-grid">
+    <div class="about-text">
+      <h3 class="about-title">Why Choose Us</h3>
+      <p class="about-main">
+        We blend <span style="font-weight:600; color:#ec4899;">creativity</span>, technology, and experience to bring your ideas to life.
+      </p>
+      <p class="about-desc">
+        Our team is passionate, diverse, and always ready to deliver unique solutions just for you.
+      </p>
+    </div>
+    <div class="about-image">
+      <img src="https://images.unsplash.com/photo-1454023492550-5696f8ff10e1?auto=format&fit=crop&w=500&q=80" alt="Feature" />
+    </div>
+  </div>
+</section>
+
+      html { scroll-behavior: smooth; }
+    </style>
+  </head>
+  <body>  
+    <div class="navbar-container">
+  <a href="#home" class="navbar-brand" onclick="document.getElementById('home').scrollIntoView({behavior:'smooth'}); return false;">
+    Explorium
+  </a>
+
+  <!-- Dropdown Menu with 3 dots -->
+  <div class="dropdown">
+    <button class="btn text-white" type="button" id="navDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 24px;">
+      &#8942;
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navDropdown">
+      <li><a class="dropdown-item" href="#home" onclick="document.getElementById('home').scrollIntoView({behavior:'smooth'}); return false;">Home</a></li>
+      <li><a class="dropdown-item" href="#about" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'}); return false;">About</a></li>
+      <li><a class="dropdown-item" href="#services" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'}); return false;">Services</a></li>
+    </ul>
+  </div>
+</div>
+
+    <section class="banner-section" id="home">
+      <img src="https://images.unsplash.com/photo-1482062364825-616fd23b8fc1?auto=format&fit=crop&w=900&q=80"
+        alt="Background" class="banner-bg" draggable="false" />
+      <div class="banner-content">
+        <h1 class="banner-title">Welcome to Explorium</h1>
+        <p class="banner-desc">
+          Unlock creativity and modern solutions tailored for you.<br/>
+          Dive into innovation and inspiration.
+        </p>
+        <a
+          href="https://www.explorium.com/about"
+          class="banner-btn"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Get Started
+        </a>
+      </div>
+    </section>   
+    <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel" style="margin-bottom: 0;">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            src="https://picsum.photos/id/1015/1200/400"
+            class="d-block w-100"
+            alt="..."
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="https://picsum.photos/id/1016/1200/400"
+            class="d-block w-100"
+            alt="..."
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="https://picsum.photos/id/1018/1200/400"
+            class="d-block w-100"
+            alt="..."
+          />
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#mainCarousel"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#mainCarousel"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>   
+    <section class="services-section" id="services">
+      <h2 class="services-title">Our Services</h2>
+      <div class="services-grid">        
+<div class="card shadow-soft fade-in">
+          <img src="https://picsum.photos/seed/card1/400/240" class="card-img" alt="Motels" />
+          <div class="card-body">
+            <h4 class="card-title">motels</h4>
+            <p class="card-desc">Explore unique landscapes and serene views through this card.</p>
+            <a href="https://en.wikipedia.org/wiki/Motel" class="card-btn" target="_blank" rel="noopener noreferrer">Learn More</a>
+          </div>
+        </div>       
+        <div class="card shadow-soft fade-in">
+          <img src="https://picsum.photos/seed/card2/400/240" class="card-img" alt="Tech" />
+          <div class="card-body">
+            <h4 class="card-title">tech</h4>
+            <p class="card-desc">Dive into technology updates and the latest gadgets right here.</p>
+            <a href="https://techcrunch.com" class="card-btn" target="_blank" rel="noopener noreferrer">Learn More</a>
+          </div>
+        </div>       
+       <div class="card shadow-soft fade-in">
+          <img src="https://picsum.photos/seed/card3/400/240" class="card-img" alt="Food" />
+          <div class="card-body">
+            <h4 class="card-title">food</h4>
+            <p class="card-desc">Discover food recipes and delightful treats across cultures.</p>
+            <a href="https://www.allrecipes.com/" class="card-btn" target="_blank" rel="noopener noreferrer">Learn More</a>
+          </div>
+        </div>        
+        <div class="card shadow-soft fade-in">
+          <img src="https://picsum.photos/seed/card4/400/240" class="card-img" alt="Journey" />
+          <div class="card-body">
+            <h4 class="card-title">journey</h4>
+            <p class="card-desc">Uncover hidden travel destinations for your next trip.</p>
+            <a href="https://www.lonelyplanet.com/" class="card-btn" target="_blank" rel="noopener noreferrer">Learn More</a>
+          </div>
+        </div>
+       <div class="card shadow-soft fade-in">
+          <img src="https://picsum.photos/seed/card5/400/240" class="card-img" alt="Money" />
+          <div class="card-body">
+            <h4 class="card-title">money</h4>
+            <p class="card-desc">Stay updated with finance tips and money-saving hacks.</p>
+            <a href="https://www.nerdwallet.com/" class="card-btn" target="_blank" rel="noopener noreferrer">Learn More</a>
+          </div>
+        </div>
+        <div class="card shadow-soft fade-in">
+          <img src="https://picsum.photos/seed/card6/400/240" class="card-img" alt="Fitness" />
+          <div class="card-body">
+            <h4 class="card-title">fitness</h4>
+            <p class="card-desc">Learn about fitness routines and wellness inspiration here.</p>
+            <a href="https://www.healthline.com/fitness-exercise" class="card-btn" target="_blank" rel="noopener noreferrer">Learn More</a>
+          </div>
+        </div>
+        <div class="card shadow-soft fade-in">
+          <img src="https://picsum.photos/seed/card7/400/240" class="card-img" alt="Art" />
+          <div class="card-body">
+            <h4 class="card-title">art</h4>
+            <p class="card-desc">Browse the world of art and creative expression daily.</p>
+            <a href="https://www.artsy.net/" class="card-btn" target="_blank" rel="noopener noreferrer">Learn More</a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://picsum.photos/seed/card8/400/240" class="card-img" alt="Business" />
+          <div class="card-body">
+            <h4 class="card-title">business</h4>
+            <p class="card-desc">Get business insights and entrepreneur stories in one spot.</p>
+            <a href="https://www.entrepreneur.com/" class="card-btn" target="_blank" rel="noopener noreferrer">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="about-section" id="about" style="padding: 40px 16px; margin-bottom: 30px;">
+  <div class="about-grid">
+    <div class="about-text">
+      <h3 class="about-title">Why Choose Us</h3>
+      <p class="about-main">
+        We blend <span style="font-weight:600; color:#ec4899;">creativity</span>, technology, and experience to bring your ideas to life.
+      </p>
+      <p class="about-desc">
+        Our team is passionate, diverse, and always ready to deliver unique solutions just for you.
+      </p>
+    </div>
+    <div class="about-image">
+      <img src="https://images.unsplash.com/photo-1454023492550-5696f8ff10e1?auto=format&fit=crop&w=500&q=80" alt="Feature" />
+    </div>
+  </div>
+</section>
+
+   <div class="video-modal">
+  <a
+    href="https://www.youtube.com/watch?v=sgB8TjNKmSI"
+    class="demo-btn"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Watch Demo
+  </a>
+</div>
+
+    <div class="container mx-auto py-8">
+  <h2 class="text-center mb-6 text-xl font-bold text-pink-800">FAQs</h2>
+  <div class="max-w-xl mx-auto flex flex-col gap-4">
+    <details class="border rounded-lg p-3 bg-white shadow">
+      <summary class="cursor-pointer font-semibold text-pink-700">What is this?</summary>
+      <div class="mt-2 text-gray-700">An all-round webpage.</div>
+    </details>
+    <details class="border rounded-lg p-3 bg-white shadow">
+      <summary class="cursor-pointer font-semibold text-pink-700">How does it work?</summary>
+      <div class="mt-2 text-gray-700">By covering what all is happening all around.</div>
+    </details>
+    <details class="border rounded-lg p-3 bg-white shadow">
+      <summary class="cursor-pointer font-semibold text-pink-700">Who is this site for?</summary>
+      <div class="mt-2 text-gray-700">It's for anyone who wants curated, interesting, and up-to-date content on a variety of topics.</div>
+    </details>
+    <details class="border rounded-lg p-3 bg-white shadow">
+      <summary class="cursor-pointer font-semibold text-pink-700">Can I contribute my own content?</summary>
+      <div class="mt-2 text-gray-700">At the moment, direct content contribution isn't available, but community suggestions are welcome!</div>
+    </details>
+   
+  </div>
+</div>
+
+    <footer style="background:linear-gradient(to right, #ef4444, #ec4899, #fde68a); color:#fff; padding:28px 0; margin-top:40px;">
+      <div style="max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:16px 0;">
+        <div style="text-align:left;">
+          <small>
+            &copy; 2025 Explorium. All rights reserved.
+            <span style="margin-left: 10px;">
+              <a href="https://www.youtube.com" aria-label="YouTube" target="_blank" rel="noopener noreferrer" style="margin-right:14px; color:#fff; text-decoration:none; vertical-align:middle;">
+                YouTube
+              </a>
+              <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noopener noreferrer" style="margin-right:14px; color:#fff; text-decoration:none; vertical-align:middle;">
+                Instagram
+              </a>
+              <a href="https://twitter.com" aria-label="Twitter" target="_blank" rel="noopener noreferrer" style="color:#fff; text-decoration:none; vertical-align:middle;">
+                Twitter
+              </a>
+            </span>
+          </small>
+        </div>
+    <div class="container py-4">
+  <div class="row justify-content-center gy-4">
+    <div class="col-3 col-md-5">
+      <div class="accordion" id="accordionCareers">
+        <div class="accordion-item rounded-4 border shadow-sm" style="background:#fef9f3;">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed rounded-4" type="button" data-bs-toggle="collapse" data-bs-target="#careersCollapse" style="background:#ec4899; color:white;">
+              Careers
+            </button>
+          </h2>
+          <div id="careersCollapse" class="accordion-collapse collapse">
+            <div class="accordion-body text-center">
+              <p>Available Roles:</p>
+              <a href="job.html" class="btn btn-sm rounded-pill mb-2" style="background:#ec4899; color:white;">Blogger</a>
+              <a href="job.html" class="btn btn-sm rounded-pill" style="background:#ec4899; color:white;">Content Creation</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-3 col-md-5">
+      <div class="accordion" id="accordionContact">
+        <div class="accordion-item rounded-4 border shadow-sm" style="background:#fef9f3;">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed rounded-4" type="button" data-bs-toggle="collapse" data-bs-target="#contactCollapse" style="background:#ec4899; color:white;">
+              Contact
+            </button>
+          </h2>
+          <div id="contactCollapse" class="accordion-collapse collapse">
+            <div class="accordion-body text-center">
+              <p>Call Us:</p>
+              <a href="tel:+919876543210" class="btn btn-sm rounded-pill mb-2" style="background:#ec4899; color:white;">+91 98765 43210</a>
+              <a href="tel:+91123456789" class="btn btn-sm rounded-pill mb-2" style="background:#ec4899; color:white;">+91 12345 6789</a>
+              <a href="tel:+91987654321" class="btn btn-sm rounded-pill" style="background:#ec4899; color:white;">+91 98765 4321</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+        </div>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
